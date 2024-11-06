@@ -1,16 +1,17 @@
-# beli_baju
+Nama: Aimee E.
 
-A new Flutter project.
+NPM: 2306165963
 
-## Getting Started
+Kelas: PBP C
 
-This project is a starting point for a Flutter application.
+E-Commerce: Clothing
 
-A few resources to get you started if this is your first Flutter project:
+Nama e-commerce: BeliBaju
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Tugas 7
+
+
+## Langkah Pengerjaan
+----------------------------
+### **Langkah Pertama
