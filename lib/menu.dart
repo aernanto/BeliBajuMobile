@@ -8,9 +8,9 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Daftar Produk", Icons.list, Colors.orange),
-    ItemHomepage("Tambah Produk", Icons.add, Colors.green),
-    ItemHomepage("Logout", Icons.logout, Colors.red),
+    ItemHomepage("Lihat Daftar Produk", Icons.list, const Color.fromARGB(255, 189, 151, 238)),
+    ItemHomepage("Tambah Produk", Icons.add, const Color.fromARGB(255, 237, 124, 162)),
+    ItemHomepage("Logout", Icons.logout, const Color.fromARGB(255, 152, 213, 247)),
   ];
 
   @override
@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Mental Health Tracker',
+          'BeliBaju',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
