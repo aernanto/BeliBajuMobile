@@ -162,6 +162,13 @@ Widget build(BuildContext context) {
 
 
 ## Definisi & Perbedaan Stateless dan Stateful widget
+Stateless widget merupakan jenis widget yang tidak memiliki state atau kondisi yang dapat berubah. Ketika widget ditampilkan, tampilannya tetap sesuai dengan yang sudah didefinisikan, tanpa memerlukan pembaruan akibat perubahan data atau interaksi pengguna. Misalnya, jika ada teks yang hanya ditampilkan tanpa perubahan atau tombol yang selalu terlihat sama meskipun diklik, stateless widget dapat digunakan. Stateless widget biasanya digunakan untuk elemen-elemen interface yang bersifat tetap, sehingga performanya cenderung lebih efisien karena tidak perlu memantau perubahan apapun.
+
+Sebaliknya, stateful widget merupakan widget yang mampu mempertahankan dan memperbarui kondisinya seiring berjalannya aplikasi. Widget ini cocok digunakan ketika ada elemen yang membutuhkan pembaruan berdasarkan tindakan user atau perubahan data yang bersifat dinamis. Misalnya, tombol yang menampilkan jumlah "like" yang akan berubah setiap kali diklik atau formulir yang menampilkan pesan validasi. Dalam Flutter, pembaruan biasanya dilakukan dengan memanggil metode setState(), yang memberitahu Flutter untuk memperbarui tampilan sesuai dengan perubahan data atau kondisi terbaru.
+
+Perbedaan utama antara stateless widget dan stateful widget adalah kemampuannya untuk mempertahankan dan memperbarui kondisi internal. Stateless widget digunakan untuk elemen statis, sementara stateful widget dirancang untuk elemen yang membutuhkan pembaruan antarmuka secara dinamis.
+
+Dalam konteks kode saya, MyHomePage didefinisikan sebagai stateless widget karena hanya menampilkan informasi statis seperti NPM, Nama, dan Kelas melalui kartu (InfoCard) serta menampilkan daftar tombol tindakan (Lihat Daftar Produk, Tambah Produk, Logout). Tampilan tidak mengalami perubahan kondisi yang membutuhkan pembaruan setelah elemen-elemen tersebut di-render. Sekalipun user berinteraksi dengan tombol, tampilan dari MyHomePage tetap sama dan hanya memunculkan snackbar sebagai bentuk respons.
 
 ## Widget yang digunakan
 1) MaterialApp
@@ -235,3 +242,19 @@ Menampilkan pesan singkat di bagian bawah layar. Ketika setiap ItemCard ditekan,
 17) ScaffoldMessenger
 
 Mengatur penampilan SnackBar pada Scaffold. Dalam ItemCard, ScaffoldMessenger digunakan untuk memunculkan dan menyembunyikan SnackBar saat kartu ditekan.
+
+## setState()
+setState() berfungsi untuk memperbarui tampilan ketika ada perubahan pada data atau status dalam sebuah stateful widget. Secara teknis, ketika setState() dipanggil, Flutter diberitahu bahwa ada perubahan pada data atau kondisi internal yang memerlukan render ulang untuk menampilkan tampilan terbaru. Artinya, metode build() akan dipanggil ulang oleh framework agar seluruh elemen di widget tersebut dapat memperbarui tampilannya sesuai dengan nilai-nilai yang telah diubah.
+
+Variabel-variabel yang terdampak oleh setState() biasanya adalah variabel dinamis yang sifatnya dapat berubah selama aplikasi berjalan. Variabel-variabel tersebut dideklarasikan dalam kelas yang mewarisi State dari widget tersebut. Contoh dari variabel yang terdampak bisa berupa status login user, teks yang berubah berdasarkan aksi user, atau nilai-nilai lain yang mempengaruhi tampilan visual di layar.
+
+## Perbedaan const dan final
+final merupakan penanda bahwa variabel hanya dapat diberikan nilai satu kali, artinya nilai variabel ini tetap setelah pertama kali diinisialisasi. Akan tetapi, nilai tersebut baru diatur saat aplikasi berjalan (runtime). Jadi, final cocok untuk data yang diperoleh atau diproses saat aplikasi berjalan, tetapi yang tetap tidak akan berubah setelah itu. Contohnya adalah mengambil data dari user atau server dan menyimpannya dalam variabel yang bersifat tetap.
+
+const memastikan bahwa nilai variabel sudah ditentukan dan disimpan langsung di kode sebelum aplikasi dijalankan (compile-time constant). Artinya, nilai tersebut sudah harus ditentukan pada saat kompilasi dan tidak dapat diubah, bahkan oleh lingkungan runtime. const lebih cocok digunakan untuk nilai-nilai yang benar-benar tetap dan bisa dipastikan sebelumnya, seperti angka tetap, warna tertentu, atau string yang tidak akan berubah.
+
+Perbedaan antara const dan final berkaitan dengan kapan nilai dari sebuah variabel ditentukan dan sifat ketetapannya setelah itu. Keduanya digunakan untuk nilai yang tidak akan berubah setelah dideklarasikan, namun ada perbedaan mendasar dalam penggunaannya.
+
+Dalam kode saya, penggunaan final terdapat pada deklarasi variabel seperti npm, name, dan className di dalam kelas MyHomePage. Variabel-variabel tersebut ditandai dengan final karena nilainya hanya ditentukan satu kali saat objek MyHomePage dibuat dan tidak akan berubah setelah itu, meskipun selama aplikasi berjalan (runtime). Misalnya, nilai npm akan tetap sama sepanjang waktu aplikasi berjalan.
+
+Untuk const, contohnya seperti Text dan Padding dalam kode MyHomePage. Pada kode saya, Text yang menampilkan "Welcome to BeliBaju!" ditandai sebagai const, yang berarti teks tidak akan berubah, sehingga Flutter dapat menghemat memori dan waktu komputasi dengan hanya membuatnya satu kali saja di awal.
