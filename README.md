@@ -9,7 +9,7 @@ E-Commerce: Clothing
 Nama e-commerce: BeliBaju
 
 
-# Tugas 7
+# Tugas 8
 ## const di Flutter
 Sebagai keyword untuk mendeklarasikan objek yang bersifat immutable dan compiled-time constant, nilai objek ditentukan pada saat kompilasi, bukan pada runtime. Ketika const ditandai pada widget atau objek, Flutter dideklarasikan bahwa objek tidak akan berubah setelah dibuat, sehingga Flutter dapat mengoptimalkan cara widget tersebut diproses.
 
