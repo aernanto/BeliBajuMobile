@@ -10,6 +10,128 @@ Nama e-commerce: BeliBaju
 
 
 # Tugas 7
+## const di Flutter
+Sebagai keyword untuk mendeklarasikan objek yang bersifat immutable dan compiled-time constant, nilai objek ditentukan pada saat kompilasi, bukan pada runtime. Ketika const ditandai pada widget atau objek, Flutter dideklarasikan bahwa objek tidak akan berubah setelah dibuat, sehingga Flutter dapat mengoptimalkan cara widget tersebut diproses.
+
+Beberapa keuntungan Flutter adalah:
+1) Mengurangi penggunaan memori dan meningkatkan performa aplikasi -> Ketika objek diberi tanda const, Flutter hanya akan membuat satu instance dari objek tersebut, meskipun objek tersebut digunakan berkali-kali dalam aplikasi.
+2) Widget const akan disimpan di dalam const pool dan digunakan kembali ketika dibutuhkan. 
+3) Tidak perlu merender ulang widget yang sudah di-const karena Flutter tahu bahwa widget tidak akan berubah. 
+
+- Kapan const dapat digunakan
+const dapat digunakan pada widget yang tidak mengalami perubahan nilai atau tidak tergantung pada state dinamis, misalnya pada Text, Icon, dan Padding. Contoh pada kode saya:
+```
+const Text('BeliBaju', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))
+```
+Tujuan diberikan const adalah agar tidak ada instance baru yang dibuat setiap kali widget dibuat kembali.
+
+- Kapan const sebaiknya tidak digunakan
+Pada widget seperti InkWell yang berinteraksi dengan pengguna, sebaiknya tidak diberi const karena widget memerlukan pembaruan saat ada interaksi, contoh ketika tombol ditekan. Contoh pada kode saya:
+```
+InkWell(
+  onTap: () {
+  },
+  child: Container(
+    padding: const EdgeInsets.all(8),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(item.icon, color: Colors.white, size: 30.0),
+        const Padding(padding: EdgeInsets.all(3)),
+        Text(item.name, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white)),
+      ],
+    ),
+  ),
+);
+
+```
+
+## Penggunaan Column dan Row pada Flutter
+1) Column
+Column digunakan untuk menyusun elemen secara vertikal, satu per satu dari atas ke bawah. Properti utamanya mencakup:
+- children: List dari widget yang akan ditata secara vertikal.
+- mainAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu utama (vertikal untuk Column).
+- crossAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu silang (horizontal untuk Column).
+Contoh penggunaan Column:
+```
+Column(
+  mainAxisAlignment: MainAxisAlignment.center, // Menata elemen secara vertikal di tengah
+  crossAxisAlignment: CrossAxisAlignment.start, // Menata elemen secara horizontal ke kiri
+  children: <Widget>[
+    Text('First Item'),
+    Text('Second Item'),
+    Text('Third Item'),
+  ],
+)
+```
+Lalu untuk contoh layoutnya adalah form dengan input teks, tombol vertikal.
+
+2) Row 
+Row digunakan untuk menyusun elemen secara horizontal, satu per satu dari kiri ke kanan. Properti utamanya mencakup:
+- children: List dari widget yang akan ditata secara horizontal.
+- mainAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu utama (horizontal untuk Row).
+- crossAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu silang (vertikal untuk Row).
+Contoh penggunaan Row:
+```
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround, // Menata elemen secara horizontal dengan jarak merata
+  crossAxisAlignment: CrossAxisAlignment.center, // Menata elemen secara vertikal di tengah
+  children: <Widget>[
+    Icon(Icons.home),
+    Icon(Icons.search),
+    Icon(Icons.settings),
+  ],
+)
+```
+Lalu untuk contoh layoutnya adalah menu dengan item horizontal, seperti tab.
+
+## Elemen input pada product_form.dart
+Semua elemen input saya memanfaatkan TextFormField, dilengkapi dengan validasi untuk memastikan bahwa input pengguna sesuai dengan format yang diinginkan. 
+
+Dalam form, pilihan yang diminta, seperti nama produk, harga, deskripsi, jumlah, ukuran, dan warna lebih sesuai untuk input teks yang dibebaskan sesuai preferensi pengguna. Maka, penggunaan     `DropdownButtonFormField` akan lebih relevan jika pilihannya terbatas yang sudah ditentukan sebelumnya. Lalu, penggunaan `Radio` lebih cocok untuk kasus di mana pengguna diminta memilih satu opsi dari beberapa pilihan yang terbatas (seperti memilih kategori produk atau jenis pengiriman). Pada form, lagi-lagi semua input bersifat bebas.
+
+## Tema (theme) dalam aplikasi Flutter
+Saya sudah menerapkan tema pada aplikasi dengan mengatur warna pada beberapa elemen, seperti di bagian `AppBar` pada menu.dart dengan menggunakan:
+```
+backgroundColor: Theme.of(context).colorScheme.primary,
+Pada bagian ini, warna latar belakang AppBar disesuaikan dengan tema yang diterapkan pada aplikasi, yang menunjukkan bahwa tema warna sudah diterapkan pada bagian tertentu.
+```
+Pada main.dart, saya telah melakukan:
+- Pemanfaatan colorScheme warna primer (primarySwatch: Colors.deepPurple) dan warna sekunder (secondary: Colors.deepPurple[400]) untuk mendefinisikan palet warna utama aplikasi.
+- Penggunaan `useMaterial3: true`, yang berarti menunjukkan bahwa aplikasi menggunakan Material Design 3 untuk memberi lebih banyak fleksibilitas dalam tampilan dan desain.
+
+## Navigasi pada Flutter
+1) Penggunaan Navigator.push()
+Pada kode saya, saya menggunakan Navigator.push() untuk berpindah antar halaman. Contoh kode:
+```
+IconButton(
+  icon: Icon(Icons.add),
+  onPressed: () {
+    // Navigasi ke halaman tambah produk
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ProductFormPage()),
+    );
+  },
+)
+```
+2) Penggunaan Navigator.pushReplacement() di Drawer
+Saya menggunakan Navigator.pushReplacement() untuk mengganti halaman yang sedang aktif dengan halaman baru. Contoh kode:
+```
+ListTile(
+  leading: const Icon(Icons.add),
+  title: const Text('Tambah Produk'),
+  onTap: () {
+    // Mengganti halaman yang sedang aktif dengan ProductFormPage
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const ProductFormPage()),
+    );
+  },
+)
+```
+
+# Tugas 7
 
 
 ## Langkah Pengerjaan
