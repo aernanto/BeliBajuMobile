@@ -48,6 +48,7 @@ InkWell(
 
 ## Penggunaan Column dan Row pada Flutter
 1) Column
+
 Column digunakan untuk menyusun elemen secara vertikal, satu per satu dari atas ke bawah. Properti utamanya mencakup:
 - children: List dari widget yang akan ditata secara vertikal.
 - mainAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu utama (vertikal untuk Column).
@@ -67,6 +68,7 @@ Column(
 Lalu untuk contoh layoutnya adalah form dengan input teks, tombol vertikal.
 
 2) Row 
+
 Row digunakan untuk menyusun elemen secara horizontal, satu per satu dari kiri ke kanan. Properti utamanya mencakup:
 - children: List dari widget yang akan ditata secara horizontal.
 - mainAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu utama (horizontal untuk Row).
@@ -102,6 +104,7 @@ Pada main.dart, saya telah melakukan:
 
 ## Navigasi pada Flutter
 1) Penggunaan Navigator.push()
+
 Pada kode saya, saya menggunakan Navigator.push() untuk berpindah antar halaman. Contoh kode:
 ```
 IconButton(
@@ -116,6 +119,7 @@ IconButton(
 )
 ```
 2) Penggunaan Navigator.pushReplacement() di Drawer
+
 Saya menggunakan Navigator.pushReplacement() untuk mengganti halaman yang sedang aktif dengan halaman baru. Contoh kode:
 ```
 ListTile(
