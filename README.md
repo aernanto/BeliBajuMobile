@@ -53,6 +53,7 @@ Column digunakan untuk menyusun elemen secara vertikal, satu per satu dari atas 
 - children: List dari widget yang akan ditata secara vertikal.
 - mainAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu utama (vertikal untuk Column).
 - crossAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu silang (horizontal untuk Column).
+
 Contoh penggunaan Column:
 ```
 Column(
@@ -73,6 +74,7 @@ Row digunakan untuk menyusun elemen secara horizontal, satu per satu dari kiri k
 - children: List dari widget yang akan ditata secara horizontal.
 - mainAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu utama (horizontal untuk Row).
 - crossAxisAlignment: Untuk mengatur penataan elemen di sepanjang sumbu silang (vertikal untuk Row).
+
 Contoh penggunaan Row:
 ```
 Row(
