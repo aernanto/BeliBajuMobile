@@ -141,7 +141,16 @@ Library ini memudahkan manajemen sesi antara Flutter dan Django. Instance Cookie
 ```
 
 ## Step-by-step
-To be added
+- Pertama, saya membuat fungsi baru di Django untuk menerima data registrasi, seperti username dan password. Saya memastikan password cocok dan username belum digunakan. Jika semuanya benar, saya membuat akun pengguna baru dan mengirimkan respons berhasil.
+- Lalu, saya menambahkan rute baru untuk fungsi registrasi agar aplikasi bisa mengaksesnya.
+- Saya membuat page baru bernama RegisterPage. Di sini, saya merancang formulir untuk username, password, dan konfirmasi password. Ketika formulir dikirim, data dikirim ke server menggunakan HTTP POST, lalu aplikasi menampilkan pesan keberhasilan atau kegagalan.
+- Saya memastikan aplikasi Flutter bisa mengakses internet dengan mengaktifkan izin di file konfigurasi Android.
+- Saya membuat endpoint untuk mengambil data mood yang disimpan di database.
+- Saya menambahkan layar baru untuk menampilkan daftar produk. Flutter akan mengambil data dari server Django, mengolahnya, lalu menampilkan daftar dengan desain yang menarik.
+- Saya membuat fungsi di Django yang menerima data baru dari aplikasi Flutter. Data ini disimpan di database, dan saya mengirimkan konfirmasi keberhasilan.
+- Saya memodifikasi tombol tambah agar bisa mengirim data baru ke Django. Setelah data berhasil ditambahkan, saya menampilkan pesan konfirmasi.
+- Kemudian, saya membuat fungsi logout yang menghapus sesi pengguna di server.
+- Terakhir, saya menambahkan opsi logout di aplikasi Flutter. Ketika logout berhasil, aplikasi menampilkan pesan perpisahan dan kembali ke halaman login.
 
 
 # Tugas 8
