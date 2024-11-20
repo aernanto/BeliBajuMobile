@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:beli_baju/screens/product_form.dart';
 import 'package:beli_baju/screens/menu.dart'; 
+import 'package:beli_baju/screens/list_productentry.dart';
+import 'package:beli_baju/screens/login.dart';
+import 'package:beli_baju/screens/product_form.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   final ItemHomepage item;
@@ -9,6 +14,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Material(
       color: Theme.of(context).colorScheme.secondary,
       borderRadius: BorderRadius.circular(12),
