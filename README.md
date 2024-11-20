@@ -111,7 +111,7 @@ Objek yang telah diubah dari JSON ke model Flutter dapat langsung digunakan untu
     - User diarahkan ke halaman utama (menu).
     - Jika gagal, pesan error ditampilkan di dialog atau snackbar.
       
-  3) Logout  
+3) Logout  
 - Proses Input di Flutter
     - Ketika user memilih logout, Flutter mengirimkan permintaan ke endpoint Django `/auth/logout/`. Contoh:  
      ```
